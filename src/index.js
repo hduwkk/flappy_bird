@@ -42,6 +42,7 @@ function init(imgObj) {
     console.log('gameScene: bird die')
     isRun = false; // 游戏场景退场
     overScene.draw(); // 结束场景切入
+    document.body.style.backgroundColor = '#7c7b6e'
   });
 
   (function run () {

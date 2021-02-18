@@ -29,7 +29,7 @@ class Bird {
     const maxRadian = (Math.PI / 180) * 45;
 
     // 根据速度计算旋转的弧度
-    const rotateRadian = baseRadian * this.speed;
+    let rotateRadian = baseRadian * this.speed;
 
     // 限制最大旋转角度为70度
     rotateRadian = rotateRadian >= maxRadian ? maxRadian : rotateRadian;
@@ -79,7 +79,7 @@ class Bird {
 }
 
 let bird = null;
-export function getBird() {
+export function getBird(ctx, img, widthFrame, heightFrame, x, y) {
   // 单利模式,整个游戏只要一个bird就够了
   if (!bird) {
     bird = new Bird(ctx, img, widthFrame, heightFrame, x, y);
