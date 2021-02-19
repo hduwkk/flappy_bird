@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="format-detection" content="telephone=no,email=no" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
     <title></title>
     <style>
-      body,html {
+      body,
+      html {
         padding: 0;
         margin: 0;
         overflow: hidden;
@@ -21,17 +24,25 @@
         min-height: 100vh;
         background-color: #ded895;
       }
-      .mask {
+      #mask {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0, 0, 0, 0.5);
       }
-      .mask button {
+      #mask.running,
+      #mask.game-over #start {
+        display: none;
+      }
+      #mask.game-over,
+      #mask.game-over .game-over-box {
+        display: block;
+      }
+      #start {
         position: absolute;
-        top: 40%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         white-space: nowrap;
@@ -45,12 +56,52 @@
         line-height: 1.2;
         outline: none;
       }
+      .game-over-box {
+        display: none;
+
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .game-over-box .text {
+        font-size: 40px;
+        font-family: '微软雅黑';
+        font-weight: 900;
+        white-space: nowrap;
+        margin: 0 0 32px;
+        color: red;
+      }
+      #again {
+        border: 0;
+        background-color: green;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 16px;
+        padding: 10px 20px;
+        line-height: 1.2;
+        outline: none;
+      }
+      .author {
+        font-size: 12px;
+        color: #fff;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: rgba(255, 255, 255, 0.5);
+      }
     </style>
   </head>
 
   <body>
-    <div class="mask">
+    <div id="mask">
       <button id="start">开始游戏</button>
+      <div class="game-over-box">
+        <p class="text">GAME OVER!!!</p>
+        <button id="again">重新开始</button>
+      </div>
+      <div class="author">created by hduwkk</div>
     </div>
     <canvas width="400" height="600" id="cvs"></canvas>
   </body>
