@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="360" height="300"></canvas>
+  <script>
+    const cvs = document.getElementById('canvas')
+    const ctx = cvs.getContext('2d')
+
+    ctx.rect(10, 10, 100, 100)
+    ctx.stroke()
+    ctx.beginPath()
+    ctx.rect(120, 10, 100, 100)
+    ctx.stroke()
+    console.log(ctx.isPointInPath(10, 10))
+  </script>
+</body>
+</html>

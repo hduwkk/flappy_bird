@@ -21,10 +21,37 @@
         min-height: 100vh;
         background-color: #ded895;
       }
+      .mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+      }
+      .mask button {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+
+        border: 0;
+        background-color: green;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 16px;
+        padding: 10px 20px;
+        line-height: 1.2;
+        outline: none;
+      }
     </style>
   </head>
 
   <body>
+    <div class="mask">
+      <button id="start">开始游戏</button>
+    </div>
     <canvas width="400" height="600" id="cvs"></canvas>
   </body>
 </html>

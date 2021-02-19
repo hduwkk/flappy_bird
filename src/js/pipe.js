@@ -5,6 +5,7 @@
  * 3、管道的高度是随机生成的，随机生成上管道的高度，下管道就可以计算了
  * 4、当管道走出画布，从右边出来时，高度需要重新随机生成
  * */
+import { SPACE_FIRST_PIPE } from './constants'
 function between(m, n) {
   m = m <= n ? m : [n, (n = m)][0];
   return Math.floor(Math.random() * (n - m + 1) + m)
@@ -33,7 +34,7 @@ class Pipe {
     this.width = this.imgDown.width;
     this.height = this.imgDown.height;
     Pipe.len++;
-    this.x = 300 + this.width * 3 * (Pipe.len - 1);
+    this.x = SPACE_FIRST_PIPE + this.width * 3 * (Pipe.len - 1);
     this.y = 0;
     // 初始化管道的坐标
     this._init();
@@ -66,6 +67,8 @@ class Pipe {
 
     // 管道走出画布，向右拼接，同时重新生成高度
     if (this.x <= -this.width) {
+      this.ctx['_score'] || (this.ctx['_score'] = 0)
+      this.ctx['_score'] += 1
       this._init();
       this.x += this.width * 3 * Pipe.len;
     }

@@ -2,6 +2,7 @@ import { getSky } from './sky';
 import { getLand } from './land';
 import { getPipe } from './pipe';
 import { getBird } from './brid';
+import { getScore } from './score'
 import * as CONSTANTS from './constants';
 
 console.log(getSky, '...');
@@ -50,6 +51,8 @@ class Scene {
     );
     // 创建鸟
     this.roles.push( getBird( this.ctx, this.imgObj.bird, 3, 1, 10, 10 ) );
+    // 创建分数
+    this.roles.push( getScore(this.ctx, this.imgObj) )
   }
   // 添加听众
   addListener(listener) {

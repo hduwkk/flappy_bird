@@ -45,14 +45,14 @@ class Bird {
     this.ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
     this.ctx.rotate(rotateRadian);
     this.ctx.drawImage(
-      this.img,
-      this.width * this.currentFrame,
-      0,
-      this.width,
-      this.height,
-      -this.width / 2,
-      -this.height / 2,
-      this.width,
+      this.img, // 源img
+      this.width * this.currentFrame, // 需剪裁的源img中的左上角X坐标
+      0, // 需剪裁的源img中的左上角Y坐标
+      this.width, // 剪裁选择框的宽度
+      this.height, // 剪裁选择框的高度
+      -this.width / 2, // img左上角在目标canvas上的X轴坐标
+      -this.height / 2, // img左上角在目标canvas上的Y坐标
+      this.width, // img在canvas上绘制的高度，默认不缩放
       this.height
     );
 
