@@ -108,7 +108,7 @@ const config = {
   },
   output: {
     path: resolve(__dirname, '../dist'),
-    filename: 'assets/js/[name].js',
+    filename: 'assets/js/[name].[hash].js',
     publicPath: '/'
   },
   resolve: {
