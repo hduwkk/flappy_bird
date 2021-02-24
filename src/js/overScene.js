@@ -4,6 +4,10 @@ const startBtn = document.getElementById('start');
 const againBtn = document.getElementById('again');
 const maskEle = document.getElementById('mask')
 
+function createError (num) {
+  console.log(num, 'num .. ..')
+  throw new Error('手动抛出一个错误')
+}
 export function bindMaskEvent (startFn) {
   // 游戏开始
   startBtn.onclick = () => {
@@ -12,6 +16,7 @@ export function bindMaskEvent (startFn) {
       window.isRun = true
       startFn()
     }
+    createError(Math.random())
   }
 // 重新开始
   againBtn.onclick = () => {

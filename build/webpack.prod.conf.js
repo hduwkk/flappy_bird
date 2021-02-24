@@ -9,7 +9,7 @@ const isTest = process.env.MY_ENV === 'test'
 
 const prodWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
-  devtool: isTest ? 'source-map' : false,
+  devtool: 'source-map',
   output: {
     publicPath: './'
   },
