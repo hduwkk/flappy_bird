@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "deploy": "sh deploy.sh",
     "dev": "webpack-dev-server --inline --config build/webpack.dev.conf.js",
     "build": "cross-env MY_ENV=production node build/build.js",
     "publish:surge": "node tool/build-example.js -t default && node build.js --env gh && surge public-gh echarts-next-examples-pissang.surge.sh"
